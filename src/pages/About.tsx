@@ -7,17 +7,17 @@ import { Link } from "react-router-dom";
 const About = () => {
   const values = [
     {
-      icon: <Heart className="h-8 w-8" />,
+      icon: <Heart className="h-10 w-10" />,
       title: "Transparency",
       description: "Complete visibility into our processes, results, and recommendations. No hidden agendas, just honest partnership."
     },
     {
-      icon: <Target className="h-8 w-8" />,
-      title: "Strategy-First Thinking",
+      icon: <Target className="h-10 w-10" />,
+      title: "Strategy-First Thinking", 
       description: "Every campaign begins with deep analysis and strategic planning. We don't just execute - we strategize for success."
     },
     {
-      icon: <Users className="h-8 w-8" />,
+      icon: <Users className="h-10 w-10" />,
       title: "True Partnership",
       description: "We become an extension of your team, invested in your long-term success and growth journey."
     }
@@ -33,40 +33,46 @@ const About = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 to-purple-50">
+      <section className="py-24 bg-gradient-to-br from-white via-blue-50/30 to-cyan-50/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
-                Welcome to
-                <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  {" "}Thun Ventures
-                </span>
+              <div className="inline-flex items-center px-4 py-2 bg-soft-aqua/20 text-electric-blue rounded-full text-sm font-medium">
+                🚀 Built for Growth. Driven by Strategy.
+              </div>
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+                <span className="text-navy">Welcome to</span>
+                <br />
+                <span className="text-electric-blue">Thun Ventures</span>
               </h1>
-              <div className="space-y-6 text-lg text-gray-600">
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Our mission is to help small and medium-sized businesses and sole proprietors master the complexity of digital marketing and achieve sustainable growth – through smart strategies and collaborative partnerships.
+                  Welcome to Thun Ventures! Our mission is to help small and medium-sized businesses 
+                  and solo entrepreneurs master the complexity of digital marketing and achieve 
+                  sustainable growth – through smart strategies and collaborative partnerships.
                 </p>
                 <p>
-                  Based in the heart of Berlin, we combine the city's innovative spirit with proven digital marketing methodologies to help businesses navigate today's complex digital landscape.
+                  Based in the heart of Berlin, Germany, we combine the city's innovative spirit 
+                  with proven digital marketing methodologies to help businesses navigate today's 
+                  complex digital landscape.
                 </p>
               </div>
-              <div className="flex items-center space-x-4 text-gray-600">
+              <div className="flex items-center space-x-4 text-electric-blue font-medium">
                 <MapPin className="h-5 w-5" />
                 <span>Headquartered in Berlin, Germany</span>
               </div>
             </div>
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=600&h=400&fit=crop" 
-                alt="Team collaboration"
-                className="rounded-2xl shadow-2xl"
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=500&fit=crop" 
+                alt="Team collaboration in Berlin"
+                className="rounded-2xl shadow-2xl w-full"
               />
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-lg">
+              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg neo-card">
                 <div className="flex items-center space-x-3">
-                  <Award className="h-8 w-8 text-yellow-500" />
+                  <Award className="h-10 w-10 text-electric-blue" />
                   <div>
-                    <div className="font-semibold">Top Rated Agency</div>
+                    <div className="font-bold text-navy">Top Rated Agency</div>
                     <div className="text-sm text-gray-500">Berlin 2024</div>
                   </div>
                 </div>
@@ -77,15 +83,15 @@ const About = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
-              <div key={index} className="space-y-2">
-                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <div key={index} className="space-y-3">
+                <div className="text-4xl md:text-5xl font-bold text-electric-blue">
                   {stat.number}
                 </div>
-                <div className="text-gray-600">{stat.label}</div>
+                <div className="text-gray-600 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -93,22 +99,22 @@ const About = () => {
       </section>
 
       {/* Values Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Core Values</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-navy">Our Core Values</h2>
             <p className="text-xl text-gray-600 max-w-2xl mx-auto">
               These principles guide every decision we make and every partnership we build
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {values.map((value, index) => (
-              <Card key={index} className="text-center p-8 hover:shadow-lg transition-shadow">
+              <Card key={index} className="neo-card text-center p-10">
                 <CardContent className="space-y-6">
-                  <div className="w-16 h-16 bg-gradient-to-r from-blue-100 to-purple-100 rounded-full flex items-center justify-center mx-auto text-blue-600">
+                  <div className="w-20 h-20 bg-gradient-to-br from-electric-blue/10 to-soft-aqua/20 rounded-2xl flex items-center justify-center mx-auto text-electric-blue">
                     {value.icon}
                   </div>
-                  <h3 className="text-2xl font-bold">{value.title}</h3>
+                  <h3 className="text-2xl font-bold text-navy">{value.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </CardContent>
               </Card>
@@ -120,39 +126,41 @@ const About = () => {
       {/* Team Section */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold mb-8 text-navy">
                 Meet the Team Behind Your Success
               </h2>
-              <div className="space-y-6 text-lg text-gray-600">
+              <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
                 <p>
-                  Our diverse team of digital marketing experts, designers, and strategists brings together years of experience helping businesses grow online.
+                  Our diverse team of digital marketing experts, designers, and strategists brings 
+                  together years of experience helping businesses grow online.
                 </p>
                 <p>
-                  From our Berlin headquarters, we work with clients across Europe and beyond, combining local insights with global digital marketing best practices.
+                  From our Berlin headquarters, we work with clients across Europe and beyond, 
+                  combining local insights with global digital marketing best practices.
                 </p>
               </div>
-              <div className="mt-8 space-y-4">
-                <div className="flex items-center space-x-3">
-                  <Calendar className="h-5 w-5 text-blue-600" />
-                  <span>Founded in 2019</span>
+              <div className="mt-10 space-y-6">
+                <div className="flex items-center space-x-4">
+                  <Calendar className="h-6 w-6 text-electric-blue" />
+                  <span className="font-medium">Founded in 2019</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <Users className="h-5 w-5 text-blue-600" />
-                  <span>15+ Team Members</span>
+                <div className="flex items-center space-x-4">
+                  <Users className="h-6 w-6 text-electric-blue" />
+                  <span className="font-medium">15+ Expert Team Members</span>
                 </div>
-                <div className="flex items-center space-x-3">
-                  <MapPin className="h-5 w-5 text-blue-600" />
-                  <span>Berlin, Germany HQ</span>
+                <div className="flex items-center space-x-4">
+                  <MapPin className="h-6 w-6 text-electric-blue" />
+                  <span className="font-medium">Berlin, Germany Headquarters</span>
                 </div>
               </div>
             </div>
-            <div>
+            <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=600&h=400&fit=crop" 
-                alt="Team working together"
-                className="rounded-2xl shadow-xl"
+                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=600&h=500&fit=crop" 
+                alt="Team working together in modern office"
+                className="rounded-2xl shadow-2xl w-full"
               />
             </div>
           </div>
@@ -160,19 +168,19 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600 text-white">
+      <section className="py-24 gradient-navy-blue text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
             Ready to Partner With Us?
           </h2>
-          <p className="text-xl mb-8 opacity-90">
+          <p className="text-xl mb-8 opacity-90 leading-relaxed">
             Let's discuss how we can help your business achieve sustainable digital growth
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary" className="text-lg px-8">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button asChild size="lg" className="bg-white text-navy hover:bg-gray-100 text-lg px-8 py-4">
               <Link to="/contact">Start a Conversation</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-blue-600">
+            <Button asChild size="lg" className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4">
               <Link to="/packages">View Our Packages</Link>
             </Button>
           </div>
