@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, Smartphone, Globe, Clock } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
-  // For now, we'll use German as default (this would be managed by context in a real app)
-  const language = "de";
+  const { language } = useLanguage();
 
   const capabilities = [
     {
@@ -23,25 +23,6 @@ const Index = () => {
       icon: <Globe className="h-8 w-8" />,
       title: language === "de" ? "Web-Design & Entwicklung" : "Web Design & Development",
       description: language === "de" ? "Moderne, konversionsfokussierte Websites" : "Modern, conversion-focused websites"
-    }
-  ];
-
-  const clientTypes = [
-    {
-      icon: <div className="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center"><span className="text-electric-blue font-bold">KMU</span></div>,
-      name: language === "de" ? "KMU" : "SMEs"
-    },
-    {
-      icon: <div className="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center"><span className="text-electric-blue font-bold">E</span></div>,
-      name: language === "de" ? "E-Commerce Shops" : "E-commerce Stores"
-    },
-    {
-      icon: <div className="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center"><span className="text-electric-blue font-bold">F</span></div>,
-      name: language === "de" ? "Freiberufler" : "Independent Professionals"
-    },
-    {
-      icon: <div className="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center"><span className="text-electric-blue font-bold">L</span></div>,
-      name: language === "de" ? "Lokale Unternehmen" : "Local Businesses"
     }
   ];
 
@@ -111,35 +92,8 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Who We Work With Section */}
-      <section className="py-20 bg-gray-50/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-              {language === "de" ? "Mit wem wir arbeiten" : "Who We Work With"}
-            </h2>
-            <p className="text-gray-600 text-lg">
-              {language === "de" 
-                ? "Wir unterstützen verschiedene Arten von Unternehmen beim digitalen Wachstum"
-                : "We help various types of businesses grow digitally"
-              }
-            </p>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-            {clientTypes.map((client, index) => (
-              <div key={index} className="text-center">
-                <div className="mb-4 flex justify-center">
-                  {client.icon}
-                </div>
-                <h3 className="font-semibold text-navy">{client.name}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Proposal Time Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-gray-50/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-electric-blue/5 rounded-2xl p-12">
             <Clock className="h-16 w-16 text-electric-blue mx-auto mb-6" />
@@ -158,7 +112,7 @@ const Index = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
@@ -236,6 +190,40 @@ const Index = () => {
                   {language === "de" 
                     ? "Wir spezialisieren uns auf kleine und mittlere Unternehmen, E-Commerce-Shops, Freiberufler und lokale Unternehmen. Unser Ansatz ist darauf ausgelegt, maßgeschneiderte Lösungen für jede Unternehmensgröße und -art zu bieten."
                     : "We specialize in small and medium enterprises, e-commerce stores, independent professionals, and local businesses. Our approach is designed to provide tailored solutions for every business size and type."
+                  }
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-navy mb-4">
+                  {language === "de" 
+                    ? "Welche Ergebnisse kann ich erwarten?"
+                    : "What results can I expect?"
+                  }
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {language === "de" 
+                    ? "Unsere Kunden sehen im Durchschnitt eine Steigerung des Website-Traffics um 150%, eine Verbesserung der Conversion-Rate um 80% und eine Erhöhung der Online-Sichtbarkeit um 200% innerhalb der ersten 6 Monate."
+                    : "Our clients typically see an average increase of 150% in website traffic, 80% improvement in conversion rates, and 200% boost in online visibility within the first 6 months."
+                  }
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-8">
+                <h3 className="text-xl font-bold text-navy mb-4">
+                  {language === "de" 
+                    ? "Wie läuft die Zusammenarbeit ab?"
+                    : "How does the collaboration work?"
+                  }
+                </h3>
+                <p className="text-gray-600 leading-relaxed">
+                  {language === "de" 
+                    ? "Nach Ihrer Anfrage führen wir zunächst ein kostenloses Beratungsgespräch durch, um Ihre Ziele zu verstehen. Anschließend erstellen wir innerhalb von 3 Tagen ein maßgeschneidertes Angebot. Nach Vertragsabschluss starten wir die Umsetzung mit regelmäßigen Updates und transparenter Kommunikation."
+                    : "After your inquiry, we conduct a free consultation call to understand your goals. We then create a tailored proposal within 3 days. Once contracted, we begin implementation with regular updates and transparent communication."
                   }
                 </p>
               </CardContent>

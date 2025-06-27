@@ -1,13 +1,12 @@
-
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Star, ArrowRight, Zap, Trophy } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Landing = () => {
-  // For now, we'll use German as default (this would be managed by context in a real app)
-  const language = "de";
+  const { language } = useLanguage();
 
   const packages = [
     {
@@ -222,7 +221,7 @@ const Landing = () => {
             <p className="text-gray-600 mb-4">
               {language === "de" ? "Brauchen Sie etwas Individuelles?" : "Need something custom?"}
             </p>
-            <Button asChild variant="outline" size="lg">
+            <Button asChild variant="outline" size="lg" className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white">
               <Link to="/contact">
                 {language === "de" ? "Individuelles Angebot anfordern" : "Request Custom Quote"}
               </Link>
