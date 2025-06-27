@@ -16,7 +16,6 @@ const Navigation = () => {
     { name: language === "de" ? "Über uns" : "About", path: "/about" },
     { name: language === "de" ? "Dienstleistungen" : "Services", path: "/services" },
     { name: language === "de" ? "Pakete" : "Packages", path: "/packages" },
-    { name: language === "de" ? "Beratung erhalten" : "Get Consultation", path: "/contact" },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -37,7 +36,7 @@ const Navigation = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            {navItems.slice(0, -1).map((item) => (
+            {navItems.map((item) => (
               <Link
                 key={item.name}
                 to={item.path}
@@ -51,19 +50,18 @@ const Navigation = () => {
               </Link>
             ))}
             
-            {/* Language Toggle */}
-            <div className="flex items-center space-x-2">
-              <Globe className="h-4 w-4 text-charcoal" />
-              <span className="text-sm font-medium text-charcoal">EN</span>
+            {/* Language Toggle - Always visible */}
+            <div className="flex items-center space-x-2 px-3 py-1 bg-gray-50 rounded-full">
+              <span className={`text-sm font-medium transition-colors ${language === "en" ? "text-electric-blue" : "text-charcoal/60"}`}>EN</span>
               <Switch 
                 checked={language === "de"} 
                 onCheckedChange={toggleLanguage}
                 className="data-[state=checked]:bg-electric-blue"
               />
-              <span className="text-sm font-medium text-charcoal">DE</span>
+              <span className={`text-sm font-medium transition-colors ${language === "de" ? "text-electric-blue" : "text-charcoal/60"}`}>DE</span>
             </div>
             
-            <Button asChild className="neo-button">
+            <Button asChild className="bg-electric-blue hover:bg-electric-blue/90 text-white">
               <Link to="/contact">
                 {language === "de" ? "Kostenlose Beratung" : "Get Free Consultation"}
               </Link>
@@ -71,7 +69,18 @@ const Navigation = () => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Mobile Language Toggle */}
+            <div className="flex items-center space-x-1">
+              <span className={`text-xs font-medium ${language === "en" ? "text-electric-blue" : "text-charcoal/60"}`}>EN</span>
+              <Switch 
+                checked={language === "de"} 
+                onCheckedChange={toggleLanguage}
+                className="data-[state=checked]:bg-electric-blue scale-75"
+              />
+              <span className={`text-xs font-medium ${language === "de" ? "text-electric-blue" : "text-charcoal/60"}`}>DE</span>
+            </div>
+            
             <Button
               variant="ghost"
               size="sm"
@@ -86,18 +95,6 @@ const Navigation = () => {
         {isOpen && (
           <div className="md:hidden py-4 border-t border-gray-100">
             <div className="flex flex-col space-y-4">
-              {/* Language Toggle Mobile */}
-              <div className="flex items-center justify-center space-x-2 pb-2">
-                <Globe className="h-4 w-4 text-charcoal" />
-                <span className="text-sm font-medium text-charcoal">EN</span>
-                <Switch 
-                  checked={language === "de"} 
-                  onCheckedChange={toggleLanguage}
-                  className="data-[state=checked]:bg-electric-blue"
-                />
-                <span className="text-sm font-medium text-charcoal">DE</span>
-              </div>
-              
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -112,6 +109,12 @@ const Navigation = () => {
                   {item.name}
                 </Link>
               ))}
+              
+              <Button asChild className="bg-electric-blue hover:bg-electric-blue/90 text-white self-start">
+                <Link to="/contact" onClick={() => setIsOpen(false)}>
+                  {language === "de" ? "Kostenlose Beratung" : "Get Free Consultation"}
+                </Link>
+              </Button>
             </div>
           </div>
         )}

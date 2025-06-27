@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Smartphone, Globe, Clock, TrendingUp } from "lucide-react";
+import { BarChart3, Smartphone, Globe, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
@@ -64,7 +64,7 @@ const Index = () => {
                 <Button 
                   asChild 
                   variant="outline"
-                  className="border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
+                  className="border-2 border-whatsapp-green text-whatsapp-green hover:bg-whatsapp-green hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
                 >
                   <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
                     {language === "de" ? "WhatsApp Chat" : "WhatsApp Chat"}
@@ -95,7 +95,7 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
               {language === "de" ? "Unsere Kompetenzen" : "Our Capabilities"}
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-charcoal/70 max-w-3xl mx-auto">
               {language === "de" 
                 ? "Umfassende digitale Lösungen, die Ihr Unternehmen zum Erfolg führen"
                 : "Comprehensive digital solutions that drive your business to success"
@@ -111,54 +111,9 @@ const Index = () => {
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">{capability.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{capability.description}</p>
+                <p className="text-charcoal/70 leading-relaxed">{capability.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Proposal Time Section */}
-      <section className="py-20 bg-gray-50/50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <Clock className="h-20 w-20 text-electric-blue mx-auto mb-8" />
-            <div className="text-6xl font-bold text-electric-blue mb-4">3 {language === "de" ? "Tage" : "Days"}</div>
-            <div className="text-2xl text-navy font-semibold mb-4">
-              {language === "de" ? "Durchschnittliche Angebotserstellungszeit" : "Average Proposal Time"}
-            </div>
-            <p className="text-gray-600 text-lg">
-              {language === "de" 
-                ? "Wir erstellen Ihnen schnell und präzise ein maßgeschneidertes Angebot"
-                : "We create tailored proposals quickly and precisely"
-              }
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
-              {language === "de" ? "Besuchen Sie uns in Berlin" : "Visit us in Berlin"}
-            </h2>
-            <p className="text-xl text-gray-600">
-              Wilmersdorfer Str. 130, 10627 Berlin, Germany
-            </p>
-          </div>
-          <div className="rounded-2xl overflow-hidden shadow-xl">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.123456789!2d13.123456!3d52.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWilmersdorfer%20Str.%20130%2C%2010627%20Berlin%2C%20Germany!5e0!3m2!1sen!2sde!4v1234567890"
-              width="100%"
-              height="400"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title={language === "de" ? "Thun Ventures Standort" : "Thun Ventures Location"}
-            ></iframe>
           </div>
         </div>
       </section>
@@ -179,12 +134,12 @@ const Index = () => {
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild size="lg" className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4">
+            <Button asChild className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4">
               <Link to="/packages">
                 {language === "de" ? "Pakete ansehen" : "View Packages"}
               </Link>
             </Button>
-            <Button asChild size="lg" className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4">
+            <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4">
               <Link to="/contact">
                 {language === "de" ? "Kostenlose Beratung erhalten" : "Get Free Consultation"}
               </Link>
