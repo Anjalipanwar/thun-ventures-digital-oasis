@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Neo-minimalist design system with new color palette */
+/* Neo-minimalist design system with improved spacing and visual hierarchy */
 
 @layer base {
   :root {
@@ -42,6 +42,7 @@
     --electric-blue: 58 134 255;
     --soft-aqua: 118 228 247;
     --charcoal: 43 46 60;
+    --whatsapp-green: 37 211 102;
   }
 }
 
@@ -59,6 +60,34 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Improved section spacing */
+  section {
+    @apply relative;
+  }
+
+  /* Remove excessive padding and improve vertical rhythm */
+  .section-spacing {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Consistent heading hierarchy */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold leading-tight;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  h3 {
+    @apply text-xl md:text-2xl font-bold leading-tight;
+  }
+
+  /* Better paragraph spacing */
+  p {
+    @apply leading-relaxed;
+  }
 }
 
 @layer utilities {
@@ -74,6 +103,10 @@
     color: rgb(118 228 247);
   }
   
+  .text-whatsapp-green {
+    color: rgb(37 211 102);
+  }
+  
   .bg-navy {
     background-color: rgb(26 31 54);
   }
@@ -86,10 +119,19 @@
     background-color: rgb(118 228 247);
   }
   
+  .bg-whatsapp-green {
+    background-color: rgb(37 211 102);
+  }
+  
   .border-electric-blue {
     border-color: rgb(58 134 255);
   }
   
+  .border-whatsapp-green {
+    border-color: rgb(37 211 102);
+  }
+  
+  /* Enhanced hover effects */
   .hover-lift {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
@@ -99,20 +141,75 @@
     box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
   }
   
+  /* Smooth animations */
+  .smooth-transition {
+    transition: all 0.3s ease-in-out;
+  }
+  
+  /* Gradient backgrounds */
   .gradient-navy-blue {
     background: linear-gradient(135deg, rgb(26 31 54), rgb(58 134 255));
   }
   
+  .gradient-blue-navy {
+    background: linear-gradient(135deg, rgb(58 134 255), rgb(26 31 54));
+  }
+  
+  /* Neo-style components */
   .neo-card {
-    @apply bg-white rounded-xl shadow-sm border border-gray-100 hover-lift;
+    @apply bg-white rounded-xl shadow-sm border border-gray-100 hover-lift smooth-transition;
   }
   
   .neo-button {
-    @apply bg-electric-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 transition-all duration-300 shadow-lg hover:shadow-xl;
+    @apply bg-electric-blue text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 smooth-transition shadow-lg hover:shadow-xl;
   }
   
   .neo-button-outline {
-    @apply border-2 border-electric-blue text-electric-blue px-8 py-3 rounded-lg font-semibold hover:bg-electric-blue hover:text-white transition-all duration-300;
+    @apply border-2 border-electric-blue text-electric-blue px-8 py-3 rounded-lg font-semibold hover:bg-electric-blue hover:text-white smooth-transition;
+  }
+
+  .neo-button-whatsapp {
+    @apply bg-whatsapp-green text-white px-8 py-3 rounded-lg font-semibold hover:bg-opacity-90 smooth-transition shadow-lg hover:shadow-xl;
+  }
+
+  .neo-button-whatsapp-outline {
+    @apply border-2 border-whatsapp-green text-whatsapp-green px-8 py-3 rounded-lg font-semibold hover:bg-whatsapp-green hover:text-white smooth-transition;
+  }
+
+  /* Improved container spacing */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Better content width control */
+  .content-width {
+    @apply max-w-7xl mx-auto;
+  }
+
+  .content-width-narrow {
+    @apply max-w-4xl mx-auto;
+  }
+
+  /* Enhanced text hierarchy */
+  .text-hero {
+    @apply text-5xl md:text-6xl lg:text-7xl font-bold leading-tight;
+  }
+
+  .text-section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+  }
+
+  .text-card-title {
+    @apply text-xl md:text-2xl font-bold leading-tight;
+  }
+
+  /* Responsive spacing utilities */
+  .space-y-section {
+    @apply space-y-16 md:space-y-20 lg:space-y-24;
+  }
+
+  .space-y-content {
+    @apply space-y-8 md:space-y-12;
   }
 }
 
@@ -123,7 +220,7 @@
   }
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar with brand colors */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -139,4 +236,28 @@
 
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(26 31 54);
+}
+
+/* Remove awkward spacing and improve visual flow */
+.remove-last-margin > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* Better focus states for accessibility */
+button:focus,
+a:focus,
+input:focus,
+textarea:focus,
+select:focus {
+  outline: 2px solid rgb(58 134 255);
+  outline-offset: 2px;
+}
+
+/* Map container styling */
+.map-container {
+  @apply relative overflow-hidden rounded-2xl shadow-xl;
+}
+
+.map-container iframe {
+  @apply w-full h-96 md:h-[400px];
 }

@@ -1,8 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, Smartphone, Globe, Clock } from "lucide-react";
+import { BarChart3, Smartphone, Globe, Clock, TrendingUp } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
@@ -10,30 +9,35 @@ const Index = () => {
 
   const capabilities = [
     {
-      icon: <BarChart3 className="h-8 w-8" />,
-      title: language === "de" ? "SEO-Management" : "SEO Management",
-      description: language === "de" ? "Strategische Optimierung für nachhaltiges Wachstum" : "Strategic optimization for sustainable growth"
+      icon: <BarChart3 className="h-10 w-10" />,
+      title: language === "de" ? "SEO & Content-Strategie" : "SEO & Content Strategy",
+      description: language === "de" ? "Strategische Optimierung für nachhaltiges Wachstum und bessere Sichtbarkeit" : "Strategic optimization for sustainable growth and better visibility"
     },
     {
-      icon: <Smartphone className="h-8 w-8" />,
-      title: language === "de" ? "Social Media Marketing" : "Social Media Marketing",
-      description: language === "de" ? "Ansprechende Inhalte, die Zielgruppen konvertieren" : "Engaging content that converts audiences"
+      icon: <Smartphone className="h-10 w-10" />,
+      title: language === "de" ? "Social Media Management" : "Social Media Management",
+      description: language === "de" ? "Ansprechende Inhalte, die Zielgruppen konvertieren und Communities aufbauen" : "Engaging content that converts audiences and builds communities"
     },
     {
-      icon: <Globe className="h-8 w-8" />,
+      icon: <Globe className="h-10 w-10" />,
       title: language === "de" ? "Web-Design & Entwicklung" : "Web Design & Development",
-      description: language === "de" ? "Moderne, konversionsfokussierte Websites" : "Modern, conversion-focused websites"
+      description: language === "de" ? "Moderne, konversionsfokussierte Websites mit benutzerfreundlichem Design" : "Modern, conversion-focused websites with user-friendly design"
+    },
+    {
+      icon: <TrendingUp className="h-10 w-10" />,
+      title: language === "de" ? "Performance Marketing (Ads)" : "Performance Marketing (Ads)",
+      description: language === "de" ? "Datengetriebene Werbekampagnen für maximale ROI und messbare Ergebnisse" : "Data-driven advertising campaigns for maximum ROI and measurable results"
     }
   ];
 
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-32 bg-navy text-white relative overflow-hidden">
+      <section className="py-24 bg-navy text-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h1 className="text-6xl md:text-7xl font-bold leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
                 {language === "de" ? "Eine erfahrene" : "An Experienced"}
                 <br />
                 <span className="text-electric-blue">
@@ -48,12 +52,28 @@ const Index = () => {
                   : "We are a digital marketing agency helping companies grow better than experts and solve your digital marketing problems."
                 }
               </p>
-              <Button className="bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-4 text-lg font-semibold">
-                {language === "de" ? "KONTAKTIEREN SIE UNS" : "CONTACT US"}
-              </Button>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  asChild 
+                  className="bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
+                >
+                  <Link to="/contact">
+                    {language === "de" ? "Termin vereinbaren" : "Schedule a Call"}
+                  </Link>
+                </Button>
+                <Button 
+                  asChild 
+                  variant="outline"
+                  className="border-2 border-[#25D366] text-[#25D366] hover:bg-[#25D366] hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
+                >
+                  <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                    {language === "de" ? "WhatsApp Chat" : "WhatsApp Chat"}
+                  </a>
+                </Button>
+              </div>
             </div>
             <div className="relative">
-              <div className="w-96 h-96 rounded-full overflow-hidden mx-auto">
+              <div className="w-96 h-96 rounded-full overflow-hidden mx-auto shadow-2xl">
                 <img 
                   src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop&crop=faces" 
                   alt="Team collaboration"
@@ -68,24 +88,30 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Capabilities Section */}
-      <section className="py-20 bg-white">
+      {/* Our Capabilities Section */}
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-lg font-medium text-electric-blue mb-4">
-              ⚡ {language === "de" ? "Unsere Kompetenzen" : "Our Capabilities"} ⚡
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
+              {language === "de" ? "Unsere Kompetenzen" : "Our Capabilities"}
             </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {language === "de" 
+                ? "Umfassende digitale Lösungen, die Ihr Unternehmen zum Erfolg führen"
+                : "Comprehensive digital solutions that drive your business to success"
+              }
+            </p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {capabilities.map((capability, index) => (
-              <div key={index} className="text-center group">
-                <div className="w-16 h-16 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-electric-blue/10 transition-colors">
-                  <div className="text-charcoal group-hover:text-electric-blue transition-colors">
+              <div key={index} className="text-center group hover:transform hover:-translate-y-2 transition-all duration-300">
+                <div className="w-20 h-20 bg-gray-50 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:bg-electric-blue/10 group-hover:shadow-lg transition-all duration-300">
+                  <div className="text-charcoal group-hover:text-electric-blue transition-colors duration-300">
                     {capability.icon}
                   </div>
                 </div>
                 <h3 className="text-xl font-bold text-navy mb-3">{capability.title}</h3>
-                <p className="text-gray-600">{capability.description}</p>
+                <p className="text-gray-600 leading-relaxed">{capability.description}</p>
               </div>
             ))}
           </div>
@@ -95,13 +121,13 @@ const Index = () => {
       {/* Proposal Time Section */}
       <section className="py-20 bg-gray-50/50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-electric-blue/5 rounded-2xl p-12">
-            <Clock className="h-16 w-16 text-electric-blue mx-auto mb-6" />
-            <div className="text-5xl font-bold text-electric-blue mb-4">3 {language === "de" ? "Tage" : "Days"}</div>
-            <div className="text-xl text-navy font-semibold">
+          <div className="bg-white rounded-3xl p-12 shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <Clock className="h-20 w-20 text-electric-blue mx-auto mb-8" />
+            <div className="text-6xl font-bold text-electric-blue mb-4">3 {language === "de" ? "Tage" : "Days"}</div>
+            <div className="text-2xl text-navy font-semibold mb-4">
               {language === "de" ? "Durchschnittliche Angebotserstellungszeit" : "Average Proposal Time"}
             </div>
-            <p className="text-gray-600 mt-4">
+            <p className="text-gray-600 text-lg">
               {language === "de" 
                 ? "Wir erstellen Ihnen schnell und präzise ein maßgeschneidertes Angebot"
                 : "We create tailored proposals quickly and precisely"
@@ -111,123 +137,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
+      {/* Map Section */}
       <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-4">
-              {language === "de" ? "Häufig gestellte Fragen" : "Frequently Asked Questions"}
+            <h2 className="text-3xl md:text-4xl font-bold text-navy mb-4">
+              {language === "de" ? "Besuchen Sie uns in Berlin" : "Visit us in Berlin"}
             </h2>
             <p className="text-xl text-gray-600">
-              {language === "de" 
-                ? "Antworten auf die wichtigsten Fragen"
-                : "Answers to the most important questions"
-              }
+              Wilmersdorfer Str. 130, 10627 Berlin, Germany
             </p>
           </div>
-          
-          <div className="space-y-6">
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-navy mb-4">
-                  {language === "de" 
-                    ? "Wie schnell kann ich Ergebnisse sehen?"
-                    : "How quickly can I see results?"
-                  }
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === "de" 
-                    ? "Die meisten Kunden sehen erste Verbesserungen innerhalb von 2-4 Wochen, mit signifikanten Ergebnissen typischerweise innerhalb von 60-90 Tagen. Der Zeitrahmen hängt von Ihrer aktuellen digitalen Präsenz und dem gewählten Paket ab."
-                    : "Most clients see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. Timeline depends on your current digital presence and chosen package."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-navy mb-4">
-                  {language === "de" 
-                    ? "Was ist, wenn ich mit den Ergebnissen nicht zufrieden bin?"
-                    : "What if I'm not satisfied with the results?"
-                  }
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === "de" 
-                    ? "Wir bieten eine 30-tägige Zufriedenheitsgarantie. Wenn Sie mit unserer Arbeit nicht zufrieden sind, beheben wir entweder die Probleme oder erstatten Ihnen den vollen Betrag zurück."
-                    : "We offer a 30-day satisfaction guarantee. If you're not happy with our work, we'll either fix the issues or provide a full refund."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-navy mb-4">
-                  {language === "de" 
-                    ? "Arbeiten Sie mit Unternehmen außerhalb von Berlin?"
-                    : "Do you work with businesses outside of Berlin?"
-                  }
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === "de" 
-                    ? "Absolut! Obwohl wir in Berlin ansässig sind, arbeiten wir mit Kunden in ganz Deutschland und Europa. Alle Beratungen können remote durchgeführt werden."
-                    : "Absolutely! While we're based in Berlin, we work with clients throughout Germany and Europe. All consultations can be conducted remotely."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-navy mb-4">
-                  {language === "de" 
-                    ? "Welche Arten von Unternehmen unterstützen Sie?"
-                    : "What types of businesses do you support?"
-                  }
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === "de" 
-                    ? "Wir spezialisieren uns auf kleine und mittlere Unternehmen, E-Commerce-Shops, Freiberufler und lokale Unternehmen. Unser Ansatz ist darauf ausgelegt, maßgeschneiderte Lösungen für jede Unternehmensgröße und -art zu bieten."
-                    : "We specialize in small and medium enterprises, e-commerce stores, independent professionals, and local businesses. Our approach is designed to provide tailored solutions for every business size and type."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-navy mb-4">
-                  {language === "de" 
-                    ? "Welche Ergebnisse kann ich erwarten?"
-                    : "What results can I expect?"
-                  }
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === "de" 
-                    ? "Unsere Kunden sehen im Durchschnitt eine Steigerung des Website-Traffics um 150%, eine Verbesserung der Conversion-Rate um 80% und eine Erhöhung der Online-Sichtbarkeit um 200% innerhalb der ersten 6 Monate."
-                    : "Our clients typically see an average increase of 150% in website traffic, 80% improvement in conversion rates, and 200% boost in online visibility within the first 6 months."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="hover:shadow-lg transition-shadow">
-              <CardContent className="p-8">
-                <h3 className="text-xl font-bold text-navy mb-4">
-                  {language === "de" 
-                    ? "Wie läuft die Zusammenarbeit ab?"
-                    : "How does the collaboration work?"
-                  }
-                </h3>
-                <p className="text-gray-600 leading-relaxed">
-                  {language === "de" 
-                    ? "Nach Ihrer Anfrage führen wir zunächst ein kostenloses Beratungsgespräch durch, um Ihre Ziele zu verstehen. Anschließend erstellen wir innerhalb von 3 Tagen ein maßgeschneidertes Angebot. Nach Vertragsabschluss starten wir die Umsetzung mit regelmäßigen Updates und transparenter Kommunikation."
-                    : "After your inquiry, we conduct a free consultation call to understand your goals. We then create a tailored proposal within 3 days. Once contracted, we begin implementation with regular updates and transparent communication."
-                  }
-                </p>
-              </CardContent>
-            </Card>
+          <div className="rounded-2xl overflow-hidden shadow-xl">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2427.123456789!2d13.123456!3d52.123456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sWilmersdorfer%20Str.%20130%2C%2010627%20Berlin%2C%20Germany!5e0!3m2!1sen!2sde!4v1234567890"
+              width="100%"
+              height="400"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title={language === "de" ? "Thun Ventures Standort" : "Thun Ventures Location"}
+            ></iframe>
           </div>
         </div>
       </section>
@@ -237,14 +168,14 @@ const Index = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             {language === "de" 
-              ? "Wir sind eine Digital Marketing Agentur, die Unternehmen hilft"
-              : "We are a digital marketing agency, helping companies"
+              ? "Bereit, Ihr digitales Wachstum zu starten?"
+              : "Ready to Start Your Digital Growth?"
             }
           </h2>
-          <p className="text-xl mb-8 text-gray-300 leading-relaxed">
+          <p className="text-xl mb-10 text-gray-300 leading-relaxed">
             {language === "de" 
-              ? "Bereit, Ihre digitale Präsenz zu transformieren und nachhaltiges Wachstum zu erreichen?"
-              : "Ready to transform your digital presence and achieve sustainable growth?"
+              ? "Lassen Sie uns gemeinsam Ihre digitale Präsenz transformieren und nachhaltiges Wachstum erreichen."
+              : "Let's work together to transform your digital presence and achieve sustainable growth."
             }
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

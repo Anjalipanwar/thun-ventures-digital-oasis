@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -124,6 +125,57 @@ const Landing = () => {
     }
   ];
 
+  const faqItems = [
+    {
+      question: language === "de" 
+        ? "Wie schnell kann ich Ergebnisse sehen?"
+        : "How quickly can I see results?",
+      answer: language === "de" 
+        ? "Die meisten Kunden sehen erste Verbesserungen innerhalb von 2-4 Wochen, mit signifikanten Ergebnissen typischerweise innerhalb von 60-90 Tagen. Der Zeitrahmen hängt von Ihrer aktuellen digitalen Präsenz und dem gewählten Paket ab."
+        : "Most clients see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. Timeline depends on your current digital presence and chosen package."
+    },
+    {
+      question: language === "de" 
+        ? "Was ist, wenn ich mit den Ergebnissen nicht zufrieden bin?"
+        : "What if I'm not satisfied with the results?",
+      answer: language === "de" 
+        ? "Wir bieten eine 30-tägige Zufriedenheitsgarantie. Wenn Sie mit unserer Arbeit nicht zufrieden sind, beheben wir entweder die Probleme oder erstatten Ihnen den vollen Betrag zurück."
+        : "We offer a 30-day satisfaction guarantee. If you're not happy with our work, we'll either fix the issues or provide a full refund."
+    },
+    {
+      question: language === "de" 
+        ? "Arbeiten Sie mit Unternehmen außerhalb von Berlin?"
+        : "Do you work with businesses outside of Berlin?",
+      answer: language === "de" 
+        ? "Absolut! Obwohl wir in Berlin ansässig sind, arbeiten wir mit Kunden in ganz Deutschland und Europa. Alle Beratungen können remote durchgeführt werden."
+        : "Absolutely! While we're based in Berlin, we work with clients throughout Germany and Europe. All consultations can be conducted remotely."
+    },
+    {
+      question: language === "de" 
+        ? "Welche Arten von Unternehmen unterstützen Sie?"
+        : "What types of businesses do you support?",
+      answer: language === "de" 
+        ? "Wir spezialisieren uns auf kleine und mittlere Unternehmen, E-Commerce-Shops, Freiberufler und lokale Unternehmen. Unser Ansatz ist darauf ausgelegt, maßgeschneiderte Lösungen für jede Unternehmensgröße und -art zu bieten."
+        : "We specialize in small and medium enterprises, e-commerce stores, independent professionals, and local businesses. Our approach is designed to provide tailored solutions for every business size and type."
+    },
+    {
+      question: language === "de" 
+        ? "Welche Ergebnisse kann ich erwarten?"
+        : "What results can I expect?",
+      answer: language === "de" 
+        ? "Unsere Kunden sehen im Durchschnitt eine Steigerung des Website-Traffics um 150%, eine Verbesserung der Conversion-Rate um 80% und eine Erhöhung der Online-Sichtbarkeit um 200% innerhalb der ersten 6 Monate."
+        : "Our clients typically see an average increase of 150% in website traffic, 80% improvement in conversion rates, and 200% boost in online visibility within the first 6 months."
+    },
+    {
+      question: language === "de" 
+        ? "Wie läuft die Zusammenarbeit ab?"
+        : "How does the collaboration work?",
+      answer: language === "de" 
+        ? "Nach Ihrer Anfrage führen wir zunächst ein kostenloses Beratungsgespräch durch, um Ihre Ziele zu verstehen. Anschließend erstellen wir innerhalb von 3 Tagen ein maßgeschneidertes Angebot. Nach Vertragsabschluss starten wir die Umsetzung mit regelmäßigen Updates und transparenter Kommunikation."
+        : "After your inquiry, we conduct a free consultation call to understand your goals. We then create a tailored proposal within 3 days. Once contracted, we begin implementation with regular updates and transparent communication."
+    }
+  ];
+
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -221,7 +273,12 @@ const Landing = () => {
             <p className="text-gray-600 mb-4">
               {language === "de" ? "Brauchen Sie etwas Individuelles?" : "Need something custom?"}
             </p>
-            <Button asChild variant="outline" size="lg" className="border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white">
+            <Button 
+              asChild 
+              variant="outline" 
+              size="lg" 
+              className="border-2 border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white transition-all duration-300"
+            >
               <Link to="/contact">
                 {language === "de" ? "Individuelles Angebot anfordern" : "Request Custom Quote"}
               </Link>
@@ -289,50 +346,27 @@ const Landing = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               {language === "de" ? "Häufig gestellte Fragen" : "Frequently Asked Questions"}
             </h2>
+            <p className="text-lg text-gray-600">
+              {language === "de" 
+                ? "Antworten auf die wichtigsten Fragen"
+                : "Answers to the most important questions"
+              }
+            </p>
           </div>
           
-          <div className="space-y-8">
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3">
-                  {language === "de" ? "Wie schnell kann ich Ergebnisse sehen?" : "How quickly can I see results?"}
-                </h3>
-                <p className="text-gray-600">
-                  {language === "de" 
-                    ? "Die meisten Kunden sehen erste Verbesserungen innerhalb von 2-4 Wochen, mit signifikanten Ergebnissen typischerweise innerhalb von 60-90 Tagen. Der Zeitrahmen hängt von Ihrer aktuellen digitalen Präsenz und dem gewählten Paket ab."
-                    : "Most clients see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. Timeline depends on your current digital presence and chosen package."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3">
-                  {language === "de" ? "Was ist, wenn ich mit den Ergebnissen nicht zufrieden bin?" : "What if I'm not satisfied with the results?"}
-                </h3>
-                <p className="text-gray-600">
-                  {language === "de" 
-                    ? "Wir bieten eine 30-tägige Zufriedenheitsgarantie. Wenn Sie mit unserer Arbeit nicht zufrieden sind, beheben wir entweder die Probleme oder erstatten Ihnen den vollen Betrag zurück."
-                    : "We offer a 30-day satisfaction guarantee. If you're not happy with our work, we'll either fix the issues or provide a full refund."
-                  }
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card>
-              <CardContent className="p-6">
-                <h3 className="text-xl font-semibold mb-3">
-                  {language === "de" ? "Arbeiten Sie mit Unternehmen außerhalb von Berlin?" : "Do you work with businesses outside of Berlin?"}
-                </h3>
-                <p className="text-gray-600">
-                  {language === "de" 
-                    ? "Absolut! Obwohl wir in Berlin ansässig sind, arbeiten wir mit Kunden in ganz Deutschland und Europa. Alle Beratungen können remote durchgeführt werden."
-                    : "Absolutely! While we're based in Berlin, we work with clients throughout Germany and Europe. All consultations can be conducted remotely."
-                  }
-                </p>
-              </CardContent>
-            </Card>
+          <div className="space-y-6">
+            {faqItems.map((item, index) => (
+              <Card key={index} className="hover:shadow-lg transition-shadow">
+                <CardContent className="p-6">
+                  <h3 className="text-lg font-bold text-navy mb-3">
+                    {item.question}
+                  </h3>
+                  <p className="text-gray-600 text-sm leading-relaxed">
+                    {item.answer}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
