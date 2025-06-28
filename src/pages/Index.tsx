@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BarChart3, Smartphone, Globe, TrendingUp, Calendar, MessageCircle, CheckCircle } from "lucide-react";
