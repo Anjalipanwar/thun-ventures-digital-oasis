@@ -88,22 +88,6 @@ const Landing = () => {
       text: language === "de" 
         ? "Professionell, transparent und ergebnisorientiert. Sie halfen uns dabei, ein starkes digitales Fundament aufzubauen, das weiterhin Leads generiert."
         : "Professional, transparent, and results-driven. They helped us establish a strong digital foundation that continues to drive leads."
-    },
-    {
-      name: "Alex Chen",
-      business: language === "de" ? "Tech Startup" : "Tech Startup",
-      rating: 5,
-      text: language === "de" 
-        ? "Das Team von Thun Ventures verstand unsere Vision vom ersten Tag an. Ihr strategischer Ansatz half uns, unsere ersten 1000 Kunden zu erreichen."
-        : "The team at Thun Ventures understood our vision from day one. Their strategic approach helped us reach our first 1000 customers."
-    },
-    {
-      name: "Lisa Johnson",
-      business: language === "de" ? "Fashion Boutique" : "Fashion Boutique",
-      rating: 5,
-      text: language === "de" 
-        ? "Außergewöhnlicher Service! Unser Social Media Engagement stieg um 400% und der Online-Umsatz verdreifachte sich innerhalb von 3 Monaten."
-        : "Outstanding service! Our social media engagement increased by 400% and online sales tripled within 3 months."
     }
   ];
 
@@ -125,57 +109,6 @@ const Landing = () => {
     }
   ];
 
-  const faqItems = [
-    {
-      question: language === "de" 
-        ? "Wie schnell kann ich Ergebnisse sehen?"
-        : "How quickly can I see results?",
-      answer: language === "de" 
-        ? "Die meisten Kunden sehen erste Verbesserungen innerhalb von 2-4 Wochen, mit signifikanten Ergebnissen typischerweise innerhalb von 60-90 Tagen. Der Zeitrahmen hängt von Ihrer aktuellen digitalen Präsenz und dem gewählten Paket ab."
-        : "Most clients see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days. Timeline depends on your current digital presence and chosen package."
-    },
-    {
-      question: language === "de" 
-        ? "Was ist, wenn ich mit den Ergebnissen nicht zufrieden bin?"
-        : "What if I'm not satisfied with the results?",
-      answer: language === "de" 
-        ? "Wir bieten eine 30-tägige Zufriedenheitsgarantie. Wenn Sie mit unserer Arbeit nicht zufrieden sind, beheben wir entweder die Probleme oder erstatten Ihnen den vollen Betrag zurück."
-        : "We offer a 30-day satisfaction guarantee. If you're not happy with our work, we'll either fix the issues or provide a full refund."
-    },
-    {
-      question: language === "de" 
-        ? "Arbeiten Sie mit Unternehmen außerhalb von Berlin?"
-        : "Do you work with businesses outside of Berlin?",
-      answer: language === "de" 
-        ? "Absolut! Obwohl wir in Berlin ansässig sind, arbeiten wir mit Kunden in ganz Deutschland und Europa. Alle Beratungen können remote durchgeführt werden."
-        : "Absolutely! While we're based in Berlin, we work with clients throughout Germany and Europe. All consultations can be conducted remotely."
-    },
-    {
-      question: language === "de" 
-        ? "Welche Arten von Unternehmen unterstützen Sie?"
-        : "What types of businesses do you support?",
-      answer: language === "de" 
-        ? "Wir spezialisieren uns auf kleine und mittlere Unternehmen, E-Commerce-Shops, Freiberufler und lokale Unternehmen. Unser Ansatz ist darauf ausgelegt, maßgeschneiderte Lösungen für jede Unternehmensgröße und -art zu bieten."
-        : "We specialize in small and medium enterprises, e-commerce stores, independent professionals, and local businesses. Our approach is designed to provide tailored solutions for every business size and type."
-    },
-    {
-      question: language === "de" 
-        ? "Welche Ergebnisse kann ich erwarten?"
-        : "What results can I expect?",
-      answer: language === "de" 
-        ? "Unsere Kunden sehen im Durchschnitt eine Steigerung des Website-Traffics um 150%, eine Verbesserung der Conversion-Rate um 80% und eine Erhöhung der Online-Sichtbarkeit um 200% innerhalb der ersten 6 Monate."
-        : "Our clients typically see an average increase of 150% in website traffic, 80% improvement in conversion rates, and 200% boost in online visibility within the first 6 months."
-    },
-    {
-      question: language === "de" 
-        ? "Wie läuft die Zusammenarbeit ab?"
-        : "How does the collaboration work?",
-      answer: language === "de" 
-        ? "Nach Ihrer Anfrage führen wir zunächst ein kostenloses Beratungsgespräch durch, um Ihre Ziele zu verstehen. Anschließend erstellen wir innerhalb von 3 Tagen ein maßgeschneidertes Angebot. Nach Vertragsabschluss starten wir die Umsetzung mit regelmäßigen Updates und transparenter Kommunikation."
-        : "After your inquiry, we conduct a free consultation call to understand your goals. We then create a tailored proposal within 3 days. Once contracted, we begin implementation with regular updates and transparent communication."
-    }
-  ];
-
   return (
     <div className="pt-16">
       {/* Hero Section */}
@@ -184,10 +117,10 @@ const Landing = () => {
           <Badge className="mb-6 bg-green-100 text-green-800 text-lg px-4 py-2">
             🚀 {language === "de" ? "Starten Sie Ihren digitalen Erfolg" : "Launch Your Digital Success"}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-navy">
             {language === "de" ? "Wählen Sie Ihr" : "Choose Your"}
             <span className="bg-gradient-to-r from-electric-blue to-navy bg-clip-text text-transparent">
-              {language === "de" ? " Wachstumspaket" : " Growth Package"}
+              {language === "de" ? " gewünschtes Paket" : " Desired Package"}
             </span>
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
@@ -220,7 +153,7 @@ const Landing = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-navy">
               {language === "de" ? "Wählen Sie Ihr perfektes Paket" : "Choose Your Perfect Package"}
             </h2>
             <p className="text-xl text-gray-600">
@@ -240,7 +173,7 @@ const Landing = () => {
                   </Badge>
                 )}
                 <CardHeader className="text-center pb-8">
-                  <CardTitle className="text-3xl mb-2">{pkg.name}</CardTitle>
+                  <CardTitle className="text-3xl mb-2 text-navy">{pkg.name}</CardTitle>
                   <div className={`text-5xl font-bold bg-gradient-to-r ${pkg.color} bg-clip-text text-transparent mb-4`}>
                     {pkg.price}
                   </div>
@@ -258,7 +191,7 @@ const Landing = () => {
                   <Button 
                     asChild 
                     size="lg" 
-                    className={`w-full text-lg bg-gradient-to-r ${pkg.color} hover:shadow-lg transform hover:scale-105 transition-all`}
+                    className={`w-full text-lg bg-gradient-to-r ${pkg.color} hover:shadow-lg transform hover:scale-105 transition-all text-white`}
                   >
                     <Link to="/contact">
                       {language === "de" ? "Jetzt starten" : "Get Started Now"} <ArrowRight className="ml-2 h-5 w-5" />
@@ -291,7 +224,7 @@ const Landing = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-navy">
               {language === "de" ? "Was unsere Kunden sagen" : "What Our Clients Say"}
             </h2>
             <p className="text-xl text-gray-600">
@@ -299,8 +232,8 @@ const Landing = () => {
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.slice(0, 3).map((testimonial, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
               <Card key={index} className="hover:shadow-lg transition-shadow">
                 <CardContent className="p-6">
                   <div className="flex text-yellow-400 mb-4">
@@ -310,90 +243,12 @@ const Landing = () => {
                   </div>
                   <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
                   <div>
-                    <div className="font-semibold">{testimonial.name}</div>
+                    <div className="font-semibold text-navy">{testimonial.name}</div>
                     <div className="text-sm text-gray-600">{testimonial.business}</div>
                   </div>
                 </CardContent>
               </Card>
             ))}
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 max-w-4xl mx-auto">
-            {testimonials.slice(3, 5).map((testimonial, index) => (
-              <Card key={index + 3} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <div className="flex text-yellow-400 mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 mb-4 italic">"{testimonial.text}"</p>
-                  <div>
-                    <div className="font-semibold">{testimonial.name}</div>
-                    <div className="text-sm text-gray-600">{testimonial.business}</div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
-              {language === "de" ? "Häufig gestellte Fragen" : "Frequently Asked Questions"}
-            </h2>
-            <p className="text-lg text-gray-600">
-              {language === "de" 
-                ? "Antworten auf die wichtigsten Fragen"
-                : "Answers to the most important questions"
-              }
-            </p>
-          </div>
-          
-          <div className="space-y-6">
-            {faqItems.map((item, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-navy mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {item.answer}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Final CTA */}
-      <section className="py-20 bg-gradient-to-r from-electric-blue to-navy text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            {language === "de" ? "Bereit, Ihr Unternehmen zu transformieren?" : "Ready to Transform Your Business?"}
-          </h2>
-          <p className="text-xl mb-8 opacity-90">
-            {language === "de" 
-              ? "Schließen Sie sich 200+ Unternehmen an, die ihr Wachstum mit Thun Ventures beschleunigt haben"
-              : "Join 200+ businesses that have accelerated their growth with Thun Ventures"
-            }
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" variant="secondary" className="text-lg px-8">
-              <Link to="/contact">
-                {language === "de" ? "Heute starten" : "Get Started Today"}
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-electric-blue">
-              <Link to="/contact">
-                {language === "de" ? "Fragen stellen" : "Ask Questions"}
-              </Link>
-            </Button>
           </div>
         </div>
       </section>

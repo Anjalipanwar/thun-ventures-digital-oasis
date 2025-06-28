@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { BarChart3, Smartphone, Globe, TrendingUp, Calendar, MessageCircle, CheckCircle } from "lucide-react";
@@ -186,7 +187,7 @@ const Index = () => {
                 {language === "de" ? "Pakete ansehen" : "View Packages"}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4 font-semibold">
+            <Button asChild className="bg-blue-600 hover:bg-blue-700 text-white text-lg px-8 py-4 font-semibold">
               <Link to="/contact">
                 {language === "de" ? "Kostenlose Beratung erhalten" : "Get Free Consultation"}
               </Link>
