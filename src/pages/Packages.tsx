@@ -2,265 +2,236 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Star, ArrowRight, Zap, Trophy } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Check, Star, ArrowRight, Calendar, MessageCircle } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const Packages = () => {
+const Landing = () => {
   const { language } = useLanguage();
 
   const packages = [
     {
-      name: language === "de" ? "Starter Paket" : "Starter Pack",
-      price: "€399",
-      description: language === "de" 
-        ? "Perfekt für Unternehmen, die mit Digital Marketing beginnen"
-        : "Perfect for businesses getting started with digital marketing",
-      popular: false,
-      features: language === "de" ? [
-        "Professionelle Website-Analyse",
-        "Basis SEO-Optimierung",
-        "Google My Business Einrichtung",
-        "Social Media Profil-Optimierung",
-        "1-Stunde Strategieberatung",
-        "E-Mail-Support für 30 Tage"
-      ] : [
-        "Professional website audit",
-        "Basic SEO optimization",
-        "Google My Business setup",
-        "Social media profile optimization",
-        "1-hour strategy consultation",
-        "Email support for 30 days"
+      name: language === "de" ? "Starter Paket" : "Starter Package",
+      price: "€997",
+      period: language === "de" ? "/Monat" : "/month",
+      description: language === "de" ? "Perfekt für kleine Unternehmen, die online wachsen möchten" : "Perfect for small businesses looking to grow online",
+      features: [
+        language === "de" ? "Website-Optimierung" : "Website optimization",
+        language === "de" ? "Basis SEO Setup" : "Basic SEO setup",
+        language === "de" ? "Social Media Management (2 Plattformen)" : "Social Media management (2 platforms)",
+        language === "de" ? "Monatliche Performance-Berichte" : "Monthly performance reports",
+        language === "de" ? "E-Mail Support" : "Email support"
       ],
-      color: "from-electric-blue to-blue-600"
+      popular: false,
+      cta: language === "de" ? "Starter wählen" : "Choose Starter"
     },
     {
-      name: language === "de" ? "Premium Paket" : "Premium Pack",
-      price: "€699", 
-      description: language === "de" 
-        ? "Umfassende Lösung für ernsthaftes Wachstum"
-        : "Comprehensive solution for serious growth",
-      popular: true,
-      features: language === "de" ? [
-        "Alles aus dem Starter Paket",
-        "Komplette Website-Neugestaltung",
-        "Erweiterte SEO-Strategie & Umsetzung",
-        "Google Ads Kampagnen-Setup",
-        "Social Media Content-Kalender (1 Monat)",
-        "Performance Analytics Dashboard",
-        "2 Strategieberatungen",
-        "Priority Support für 60 Tage"
-      ] : [
-        "Everything in Starter Pack",
-        "Complete website redesign",
-        "Advanced SEO strategy & implementation",
-        "Google Ads campaign setup",
-        "Social media content calendar (1 month)",
-        "Performance analytics dashboard",
-        "2 strategy consultations",
-        "Priority support for 60 days"
+      name: language === "de" ? "Growth Paket" : "Growth Package",
+      price: "€1,997",
+      period: language === "de" ? "/Monat" : "/month",
+      description: language === "de" ? "Für Unternehmen, die ihr digitales Marketing skalieren möchten" : "For businesses ready to scale their digital marketing",
+      features: [
+        language === "de" ? "Alles aus Starter Paket" : "Everything in Starter",
+        language === "de" ? "Performance Marketing (Google & Facebook Ads)" : "Performance marketing (Google & Facebook Ads)",
+        language === "de" ? "Content-Strategie & Erstellung" : "Content strategy & creation",
+        language === "de" ? "Erweiterte SEO & Analytics" : "Advanced SEO & analytics",
+        language === "de" ? "Wöchentliche Strategie-Calls" : "Weekly strategy calls",
+        language === "de" ? "Prioritätssupport" : "Priority support"
       ],
-      color: "from-navy to-electric-blue"
+      popular: true,
+      cta: language === "de" ? "Growth wählen" : "Choose Growth"
+    },
+    {
+      name: language === "de" ? "Enterprise Paket" : "Enterprise Package",
+      price: language === "de" ? "Ab €3,997" : "From €3,997",
+      period: language === "de" ? "/Monat" : "/month",
+      description: language === "de" ? "Vollständige digitale Marketing-Lösung für etablierte Unternehmen" : "Complete digital marketing solution for established businesses",
+      features: [
+        language === "de" ? "Alles aus Growth Paket" : "Everything in Growth",
+        language === "de" ? "Dediziertes Account Management" : "Dedicated account management",
+        language === "de" ? "Multi-Channel Marketing Automation" : "Multi-channel marketing automation",
+        language === "de" ? "Erweiterte Conversion-Optimierung" : "Advanced conversion optimization",
+        language === "de" ? "Individuelle Strategie & Beratung" : "Custom strategy & consulting",
+        language === "de" ? "24/7 Support" : "24/7 support"
+      ],
+      popular: false,
+      cta: language === "de" ? "Enterprise wählen" : "Choose Enterprise"
     }
   ];
 
   const testimonials = [
     {
-      name: "Maria Schmidt",
-      business: language === "de" ? "Lokaler Restaurantbesitzer" : "Local Restaurant Owner",
-      rating: 5,
+      name: "Sarah Chen",
+      company: "EcoStyle Boutique",
       text: language === "de" 
-        ? "Thun Ventures hat unsere Online-Präsenz komplett transformiert. Wir gingen von 10 Kunden pro Woche auf 50+ dank ihrer SEO- und Social Media-Arbeit!"
-        : "Thun Ventures transformed our online presence completely. We went from 10 customers per week to 50+ thanks to their SEO and social media work!"
+        ? "Thun Ventures hat unseren Online-Umsatz um 300% gesteigert. Ihre strategische Herangehensweise und transparente Kommunikation sind außergewöhnlich."
+        : "Thun Ventures increased our online revenue by 300%. Their strategic approach and transparent communication is exceptional.",
+      rating: 5
     },
     {
-      name: "Thomas Weber",
-      business: language === "de" ? "E-Commerce Shop" : "E-commerce Store",
-      rating: 5,
-      text: language === "de" 
-        ? "Das Premium Paket war jeden Euro wert. Unsere Website-Conversion-Rate stieg um 200% und unsere Google Ads sind endlich profitabel."
-        : "The Premium Pack was worth every euro. Our website conversion rate increased by 200% and our Google Ads are finally profitable."
+      name: "Marcus Weber",
+      company: "TechFlow Solutions",
+      text: language === "de"
+        ? "Endlich eine Agentur, die versteht, was kleine Unternehmen brauchen. ROI war vom ersten Monat an sichtbar."
+        : "Finally an agency that understands what small businesses need. ROI was visible from the first month.",
+      rating: 5
     },
     {
-      name: "Sophie Müller",
-      business: language === "de" ? "Beratungsunternehmen" : "Consulting Firm",
-      rating: 5,
-      text: language === "de" 
-        ? "Professionell, transparent und ergebnisorientiert. Sie halfen uns dabei, ein starkes digitales Fundament aufzubauen, das weiterhin Leads generiert."
-        : "Professional, transparent, and results-driven. They helped us establish a strong digital foundation that continues to drive leads."
+      name: "Lisa Rodriguez",
+      company: "Wellness Studio Luna",
+      text: language === "de"
+        ? "Die persönliche Betreuung und messbaren Ergebnisse übertreffen alle Erwartungen. Absolute Empfehlung!"
+        : "The personal support and measurable results exceed all expectations. Absolute recommendation!",
+      rating: 5
     }
   ];
 
-  const benefits = [
+  const faqs = [
     {
-      icon: <Zap className="h-6 w-6" />,
-      title: language === "de" ? "Schnelle Umsetzung" : "Fast Implementation",
-      description: language === "de" ? "Innerhalb von 48 Stunden nach Kauf starten" : "Get started within 48 hours of purchase"
-    },
-    {
-      icon: <Trophy className="h-6 w-6" />,
-      title: language === "de" ? "Bewährte Ergebnisse" : "Proven Results",
-      description: language === "de" ? "Durchschnittlich 3x Wachstum für unsere Kunden" : "Average 3x growth for our clients"
-    },
-    {
-      icon: <CheckCircle className="h-6 w-6" />,
-      title: language === "de" ? "Zufriedenheitsgarantie" : "Satisfaction Guaranteed",
-      description: language === "de" ? "30-Tage Geld-zurück-Garantie" : "30-day money-back guarantee"
-    }
-  ];
-
-  const faqItems = [
-    {
-      question: language === "de" 
-        ? "Wie schnell kann ich Ergebnisse sehen?"
-        : "How quickly can I see results?",
+      question: language === "de" ? "Wie schnell sehe ich erste Ergebnisse?" : "How quickly will I see initial results?",
       answer: language === "de" 
-        ? "Die meisten Kunden sehen erste Verbesserungen innerhalb von 2-4 Wochen, mit signifikanten Ergebnissen typischerweise innerhalb von 60-90 Tagen."
-        : "Most clients see initial improvements within 2-4 weeks, with significant results typically visible within 60-90 days."
+        ? "Die meisten unserer Kunden sehen erste messbare Verbesserungen innerhalb von 30-60 Tagen. Langfristige, nachhaltige Ergebnisse entwickeln sich typischerweise über 3-6 Monate."
+        : "Most of our clients see initial measurable improvements within 30-60 days. Long-term, sustainable results typically develop over 3-6 months."
     },
     {
-      question: language === "de" 
-        ? "Was ist, wenn ich mit den Ergebnissen nicht zufrieden bin?"
-        : "What if I'm not satisfied with the results?",
-      answer: language === "de" 
-        ? "Wir bieten eine 30-tägige Zufriedenheitsgarantie. Wenn Sie mit unserer Arbeit nicht zufrieden sind, beheben wir entweder die Probleme oder erstatten Ihnen den vollen Betrag zurück."
-        : "We offer a 30-day satisfaction guarantee. If you're not happy with our work, we'll either fix the issues or provide a full refund."
+      question: language === "de" ? "Gibt es langfristige Verträge?" : "Are there long-term contracts?",
+      answer: language === "de"
+        ? "Nein, wir arbeiten ohne langfristige Bindung. Sie können jederzeit mit einer 30-tägigen Kündigungsfrist beenden. Wir sind überzeugt, dass unsere Ergebnisse für sich sprechen."
+        : "No, we work without long-term commitments. You can cancel anytime with 30 days notice. We're confident our results speak for themselves."
     },
     {
-      question: language === "de" 
-        ? "Arbeiten Sie mit Unternehmen außerhalb von Berlin?"
-        : "Do you work with businesses outside of Berlin?",
-      answer: language === "de" 
-        ? "Absolut! Obwohl wir in Berlin ansässig sind, arbeiten wir mit Kunden in ganz Deutschland und Europa."
-        : "Absolutely! While we're based in Berlin, we work with clients throughout Germany and Europe."
+      question: language === "de" ? "Was unterscheidet euch von anderen Agenturen?" : "What sets you apart from other agencies?",
+      answer: language === "de"
+        ? "Unsere Spezialisierung auf kleine und mittlere Unternehmen, vollständige Transparenz bei Prozessen und Ergebnissen, sowie unser strategischer Ansatz. Wir sind Partner, nicht nur Dienstleister."
+        : "Our specialization in small and medium businesses, complete transparency in processes and results, and our strategic approach. We're partners, not just service providers."
+    },
+    {
+      question: language === "de" ? "Welche Branchen betreut ihr?" : "Which industries do you serve?",
+      answer: language === "de"
+        ? "Wir arbeiten branchenübergreifend, haben aber besondere Expertise in E-Commerce, B2B-Services, Gesundheitswesen, Beratung und lokalen Dienstleistungen."
+        : "We work across industries but have particular expertise in e-commerce, B2B services, healthcare, consulting, and local services."
     }
   ];
 
   return (
-    <div className="pt-16 bg-gray-50">
+    <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <Badge className="mb-6 bg-electric-blue/10 text-electric-blue text-sm px-4 py-2 font-medium">
-            🚀 {language === "de" ? "Starten Sie Ihren digitalen Erfolg" : "Launch Your Digital Success"}
-          </Badge>
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-navy">
-            {language === "de" ? "Wählen Sie Ihr" : "Choose Your"}
-            <br />
-            <span className="text-electric-blue">
-              {language === "de" ? "Wachstumspaket" : "Growth Package"}
-            </span>
-          </h1>
-          <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto leading-relaxed">
-            {language === "de" 
-              ? "Sorgfältig zusammengestellte Pakete, die darauf ausgelegt sind, Ihr Unternehmenswachstum zu beschleunigen."
-              : "Carefully crafted packages designed to accelerate your business growth."
-            }
-          </p>
-        </div>
-      </section>
-
-      {/* Benefits Bar */}
-      <section className="py-12 bg-white border-b">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            {benefits.map((benefit, index) => (
-              <div key={index} className="flex items-center justify-center space-x-3">
-                <div className="text-electric-blue">{benefit.icon}</div>
-                <div>
-                  <div className="font-semibold text-navy">{benefit.title}</div>
-                  <div className="text-sm text-gray-600">{benefit.description}</div>
-                </div>
-              </div>
-            ))}
+      <section className="py-24 bg-gradient-to-br from-navy via-navy to-electric-blue text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-4xl mx-auto">
+            <div className="inline-flex items-center px-4 py-2 bg-white/20 text-white rounded-full text-sm font-medium mb-8">
+              🚀 {language === "de" ? "Digitales Wachstum. Messbare Ergebnisse." : "Digital Growth. Measurable Results."}
+            </div>
+            <h1 className="text-5xl md:text-6xl font-bold leading-tight mb-8">
+              {language === "de" ? "Wählen Sie Ihr" : "Choose Your"}
+              <br />
+              <span className="text-soft-aqua">
+                {language === "de" ? "Wachstumspaket" : "Growth Package"}
+              </span>
+            </h1>
+            <p className="text-xl text-gray-200 leading-relaxed mb-12">
+              {language === "de" 
+                ? "Transparente Preise. Keine versteckten Kosten. Messbare Ergebnisse in 30-90 Tagen."
+                : "Transparent pricing. No hidden costs. Measurable results in 30-90 days."
+              }
+            </p>
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button 
+                asChild 
+                className="bg-white text-navy hover:bg-gray-100 text-lg px-8 py-4 font-semibold"
+              >
+                <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <Calendar className="h-5 w-5" />
+                  {language === "de" ? "Kostenlose Beratung" : "Free Consultation"}
+                </a>
+              </Button>
+              <Button 
+                asChild 
+                variant="outline"
+                className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4 font-semibold"
+              >
+                <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                  <MessageCircle className="h-5 w-5" />
+                  {language === "de" ? "WhatsApp Chat" : "WhatsApp Chat"}
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Packages Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      {/* Pricing Packages */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {packages.map((pkg, index) => (
-              <Card key={index} className={`relative hover:shadow-xl transition-all duration-300 ${pkg.popular ? 'border-2 border-electric-blue' : 'border border-gray-200'} bg-white`}>
+              <Card key={index} className={`relative neo-card ${pkg.popular ? 'ring-2 ring-electric-blue shadow-xl scale-105' : ''}`}>
                 {pkg.popular && (
                   <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-electric-blue text-white px-4 py-1">
-                    {language === "de" ? "Beliebteste" : "Most Popular"}
+                    {language === "de" ? "Beliebt" : "Most Popular"}
                   </Badge>
                 )}
-                <CardHeader className="text-center pb-6">
-                  <CardTitle className="text-2xl mb-2 text-navy">{pkg.name}</CardTitle>
-                  <div className="text-4xl font-bold text-electric-blue mb-4">
-                    {pkg.price}
+                <CardHeader className="text-center pb-8">
+                  <CardTitle className="text-2xl font-bold text-navy mb-2">{pkg.name}</CardTitle>
+                  <div className="mb-4">
+                    <span className="text-4xl font-bold text-electric-blue">{pkg.price}</span>
+                    <span className="text-gray-600 ml-1">{pkg.period}</span>
                   </div>
                   <p className="text-gray-600">{pkg.description}</p>
                 </CardHeader>
-                <CardContent className="space-y-6">
-                  <ul className="space-y-3">
-                    {pkg.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start space-x-3">
-                        <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                        <span className="text-gray-700 text-sm">{feature}</span>
+                <CardContent>
+                  <ul className="space-y-4 mb-8">
+                    {pkg.features.map((feature, idx) => (
+                      <li key={idx} className="flex items-center space-x-3">
+                        <Check className="h-5 w-5 text-electric-blue" />
+                        <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
                   <Button 
-                    asChild 
-                    size="lg" 
-                    className="w-full bg-electric-blue hover:bg-electric-blue/90 text-white"
+                    asChild
+                    className={`w-full ${pkg.popular ? 'bg-electric-blue hover:bg-electric-blue/90' : 'bg-navy hover:bg-navy/90'} text-white`}
                   >
-                    <Link to="/contact">
-                      {language === "de" ? "Jetzt starten" : "Get Started Now"} <ArrowRight className="ml-2 h-4 w-4" />
+                    <Link to="/contact" className="flex items-center justify-center gap-2">
+                      {pkg.cta}
+                      <ArrowRight className="h-4 w-4" />
                     </Link>
                   </Button>
                 </CardContent>
               </Card>
             ))}
           </div>
-
-          <div className="text-center mt-12">
-            <p className="text-gray-600 mb-4">
-              {language === "de" ? "Brauchen Sie etwas Individuelles?" : "Need something custom?"}
-            </p>
-            <Button 
-              asChild 
-              variant="outline" 
-              size="lg" 
-              className="border-2 border-electric-blue text-electric-blue hover:bg-electric-blue hover:text-white"
-            >
-              <Link to="/contact">
-                {language === "de" ? "Individuelles Angebot anfordern" : "Request Custom Quote"}
-              </Link>
-            </Button>
-          </div>
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Testimonials */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-navy">
+            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
               {language === "de" ? "Was unsere Kunden sagen" : "What Our Clients Say"}
             </h2>
-            <p className="text-gray-600">
-              {language === "de" ? "Echte Ergebnisse von echten Unternehmen" : "Real results from real businesses"}
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              {language === "de" 
+                ? "Echte Ergebnisse von echten Unternehmen"
+                : "Real results from real businesses"
+              }
             </p>
           </div>
-          
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow bg-white border border-gray-200">
-                <CardContent className="p-6">
-                  <div className="flex text-yellow-400 mb-4">
+              <Card key={index} className="neo-card text-center p-8">
+                <CardContent className="space-y-6">
+                  <div className="flex justify-center space-x-1 mb-4">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-current" />
+                      <Star key={i} className="h-5 w-5 fill-yellow-400 text-yellow-400" />
                     ))}
                   </div>
-                  <p className="text-gray-700 mb-4 text-sm italic leading-relaxed">"{testimonial.text}"</p>
+                  <p className="text-gray-600 leading-relaxed italic">"{testimonial.text}"</p>
                   <div>
-                    <div className="font-semibold text-navy">{testimonial.name}</div>
-                    <div className="text-xs text-gray-500">{testimonial.business}</div>
+                    <p className="font-bold text-navy">{testimonial.name}</p>
+                    <p className="text-electric-blue font-medium">{testimonial.company}</p>
                   </div>
                 </CardContent>
               </Card>
@@ -269,34 +240,65 @@ const Packages = () => {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      {/* FAQ */}
+      <section className="py-24 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-4 text-navy">
+            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
               {language === "de" ? "Häufig gestellte Fragen" : "Frequently Asked Questions"}
             </h2>
-            <p className="text-gray-600">
+            <p className="text-xl text-gray-600">
               {language === "de" 
                 ? "Antworten auf die wichtigsten Fragen"
                 : "Answers to the most important questions"
               }
             </p>
           </div>
-          
-          <div className="space-y-6">
-            {faqItems.map((item, index) => (
-              <Card key={index} className="hover:shadow-lg transition-shadow bg-white border border-gray-200">
-                <CardContent className="p-6">
-                  <h3 className="text-lg font-bold text-navy mb-3">
-                    {item.question}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {item.answer}
-                  </p>
-                </CardContent>
-              </Card>
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem key={index} value={`item-${index}`} className="bg-white rounded-xl border-0 shadow-sm">
+                <AccordionTrigger className="px-8 py-6 text-left font-semibold text-navy hover:no-underline">
+                  {faq.question}
+                </AccordionTrigger>
+                <AccordionContent className="px-8 pb-6 text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
             ))}
+          </Accordion>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 bg-navy text-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+            {language === "de" 
+              ? "Bereit zu wachsen?"
+              : "Ready to Grow?"
+            }
+          </h2>
+          <p className="text-xl mb-10 text-gray-300 leading-relaxed">
+            {language === "de" 
+              ? "Starten Sie noch heute Ihre digitale Transformation mit messbaren Ergebnissen."
+              : "Start your digital transformation today with measurable results."
+            }
+          </p>
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <Button asChild className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4">
+              <Link to="/contact">
+                {language === "de" ? "Kostenlose Beratung starten" : "Start Free Consultation"}
+              </Link>
+            </Button>
+            <Button 
+              asChild 
+              variant="outline" 
+              className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4"
+            >
+              <a href="https://calendly.com" target="_blank" rel="noopener noreferrer">
+                {language === "de" ? "Termin vereinbaren" : "Schedule Call"}
+              </a>
+            </Button>
           </div>
         </div>
       </section>
@@ -304,4 +306,4 @@ const Packages = () => {
   );
 };
 
-export default Packages;
+export default Landing;
