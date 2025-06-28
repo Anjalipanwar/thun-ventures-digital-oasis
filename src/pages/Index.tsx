@@ -1,7 +1,7 @@
 
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { BarChart3, Smartphone, Globe, TrendingUp } from "lucide-react";
+import { BarChart3, Smartphone, Globe, TrendingUp, Calendar, MessageCircle, CheckCircle } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
@@ -27,6 +27,25 @@ const Index = () => {
       icon: <TrendingUp className="h-10 w-10" />,
       title: language === "de" ? "Performance Marketing (Ads)" : "Performance Marketing (Ads)",
       description: language === "de" ? "Datengetriebene Werbekampagnen für maximale ROI und messbare Ergebnisse" : "Data-driven advertising campaigns for maximum ROI and measurable results"
+    }
+  ];
+
+  const whyThunVentures = [
+    {
+      title: language === "de" ? "Spezialisiert auf kleine Unternehmen & Selbstständige" : "Specialized in small businesses & entrepreneurs",
+      icon: <CheckCircle className="h-6 w-6" />
+    },
+    {
+      title: language === "de" ? "Transparente Preise ohne versteckte Kosten" : "Transparent pricing without hidden costs",
+      icon: <CheckCircle className="h-6 w-6" />
+    },
+    {
+      title: language === "de" ? "Persönliche Betreuung durch erfahrene Experten" : "Personal support from experienced experts",
+      icon: <CheckCircle className="h-6 w-6" />
+    },
+    {
+      title: language === "de" ? "Messbare Ergebnisse in 30–90 Tagen" : "Measurable results in 30–90 days",
+      icon: <CheckCircle className="h-6 w-6" />
     }
   ];
 
@@ -57,16 +76,18 @@ const Index = () => {
                   asChild 
                   className="bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
                 >
-                  <Link to="/contact">
+                  <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <Calendar className="h-5 w-5" />
                     {language === "de" ? "Termin vereinbaren" : "Schedule a Call"}
-                  </Link>
+                  </a>
                 </Button>
                 <Button 
                   asChild 
                   variant="outline"
                   className="border-2 border-whatsapp-green text-whatsapp-green hover:bg-whatsapp-green hover:text-white px-8 py-4 text-lg font-semibold transition-all duration-300"
                 >
-                  <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer">
+                  <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                    <MessageCircle className="h-5 w-5" />
                     {language === "de" ? "WhatsApp Chat" : "WhatsApp Chat"}
                   </a>
                 </Button>
@@ -118,6 +139,33 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Why Thun Ventures Section */}
+      <section className="py-24 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold text-navy mb-6">
+              {language === "de" ? "Warum Thun Ventures?" : "Why Thun Ventures?"}
+            </h2>
+            <p className="text-xl text-charcoal/70 max-w-3xl mx-auto">
+              {language === "de" 
+                ? "Wir verstehen die Herausforderungen von Selbstständigen und kleinen Unternehmen."
+                : "We understand the challenges of entrepreneurs and small businesses."
+              }
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {whyThunVentures.map((item, index) => (
+              <div key={index} className="flex items-center space-x-4 p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+                <div className="text-electric-blue">
+                  {item.icon}
+                </div>
+                <span className="text-lg font-medium text-charcoal">{item.title}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 bg-navy text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -139,7 +187,7 @@ const Index = () => {
                 {language === "de" ? "Pakete ansehen" : "View Packages"}
               </Link>
             </Button>
-            <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4">
+            <Button asChild variant="outline" className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4 font-semibold">
               <Link to="/contact">
                 {language === "de" ? "Kostenlose Beratung erhalten" : "Get Free Consultation"}
               </Link>

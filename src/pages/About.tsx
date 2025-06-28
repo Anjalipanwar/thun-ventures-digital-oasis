@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Heart, Target, Users, Award, MapPin, Calendar } from "lucide-react";
+import { Heart, Target, Users, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const About = () => {
@@ -21,13 +21,6 @@ const About = () => {
       title: "True Partnership",
       description: "We become an extension of your team, invested in your long-term success and growth journey."
     }
-  ];
-
-  const stats = [
-    { number: "200+", label: "Clients Served" },
-    { number: "5+", label: "Years Experience" },
-    { number: "98%", label: "Client Satisfaction" },
-    { number: "3x", label: "Average Growth" }
   ];
 
   return (
@@ -68,32 +61,7 @@ const About = () => {
                 alt="Team collaboration in Berlin"
                 className="rounded-2xl shadow-2xl w-full"
               />
-              <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-lg neo-card">
-                <div className="flex items-center space-x-3">
-                  <Award className="h-10 w-10 text-electric-blue" />
-                  <div>
-                    <div className="font-bold text-navy">Top Rated Agency</div>
-                    <div className="text-sm text-gray-500">Berlin 2024</div>
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {stats.map((stat, index) => (
-              <div key={index} className="space-y-3">
-                <div className="text-4xl md:text-5xl font-bold text-electric-blue">
-                  {stat.number}
-                </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -142,14 +110,6 @@ const About = () => {
                 </p>
               </div>
               <div className="mt-10 space-y-6">
-                <div className="flex items-center space-x-4">
-                  <Calendar className="h-6 w-6 text-electric-blue" />
-                  <span className="font-medium">Founded in 2019</span>
-                </div>
-                <div className="flex items-center space-x-4">
-                  <Users className="h-6 w-6 text-electric-blue" />
-                  <span className="font-medium">15+ Expert Team Members</span>
-                </div>
                 <div className="flex items-center space-x-4">
                   <MapPin className="h-6 w-6 text-electric-blue" />
                   <span className="font-medium">Berlin, Germany Headquarters</span>

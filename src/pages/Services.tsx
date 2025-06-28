@@ -221,7 +221,7 @@ const Services = () => {
             <Button asChild size="lg" variant="secondary" className="text-lg px-8">
               <Link to="/packages">View Packages</Link>
             </Button>
-            <Button asChild size="lg" variant="outline" className="text-lg px-8 border-white text-white hover:bg-white hover:text-blue-600">
+            <Button asChild size="lg" className="text-lg px-8 bg-navy text-white hover:bg-navy/90 border-0">
               <Link to="/contact">Custom Quote</Link>
             </Button>
           </div>

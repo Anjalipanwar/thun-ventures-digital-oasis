@@ -9,12 +9,7 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gradient-to-r from-electric-blue to-soft-aqua rounded-xl flex items-center justify-center">
-                <span className="text-white font-bold text-lg">TV</span>
-              </div>
-              <span className="text-2xl font-bold">Thun Ventures</span>
-            </div>
+            <span className="text-2xl font-bold">Thun Ventures</span>
             <p className="text-gray-300 leading-relaxed">
               Helping small and medium-sized businesses navigate the digital landscape with smart strategies and collaborative partnerships.
             </p>
