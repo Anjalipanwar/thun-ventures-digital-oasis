@@ -49,14 +49,14 @@ const Index = () => {
   }];
   return <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 bg-violet-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-violet-50">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center px-4 py-2 bg-electric-blue/10 text-electric-blue rounded-full text-sm font-medium">
                 🚀 {language === "de" ? "Digitales Wachstum beginnt hier" : "Digital Growth Starts Here"}
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center">
                 <span className="text-navy">
                   {language === "de" ? "Ihre" : "Your"}
                 </span>
@@ -102,9 +102,7 @@ const Index = () => {
             
             {/* Hero Image */}
             <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=600&h=600&fit=crop" alt="Digital marketing team collaboration" className="w-full h-full object-cover" />
-              </div>
+              
             </div>
           </div>
         </div>
