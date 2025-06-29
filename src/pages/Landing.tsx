@@ -117,11 +117,8 @@ const Landing = () => {
           <Badge className="mb-6 bg-green-100 text-green-800 text-lg px-4 py-2">
             🚀 {language === "de" ? "Starten Sie Ihren digitalen Erfolg" : "Launch Your Digital Success"}
           </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-navy">
-            {language === "de" ? "Wählen Sie Ihr" : "Choose Your"}
-            <span className="bg-gradient-to-r from-electric-blue to-navy bg-clip-text text-transparent">
-              {language === "de" ? " gewünschtes Paket" : " Desired Package"}
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-black">
+            {language === "de" ? "Wählen Sie Ihr gewünschtes Paket" : "Choose Your Desired Package"}
           </h1>
           <p className="text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
             {language === "de" 
@@ -153,7 +150,7 @@ const Landing = () => {
       <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-navy">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 text-black">
               {language === "de" ? "Wählen Sie Ihr perfektes Paket" : "Choose Your Perfect Package"}
             </h2>
             <p className="text-xl text-gray-600">
