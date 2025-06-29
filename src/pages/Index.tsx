@@ -67,14 +67,14 @@ const Index = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-24 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center px-4 py-2 bg-electric-blue/10 text-electric-blue rounded-full text-sm font-medium">
                 🚀 {language === "de" ? "Digitales Wachstum beginnt hier" : "Digital Growth Starts Here"}
               </div>
-              <h1 className="text-5xl md:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl md:text-5xl font-bold leading-tight">
                 <span className="text-navy">
                   {language === "de" ? "Ihre" : "Your"}
                 </span>
@@ -98,7 +98,7 @@ const Index = () => {
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button 
                   asChild 
-                  className="bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-4 text-lg font-semibold"
+                  className="bg-electric-blue hover:bg-electric-blue/90 text-white px-8 py-3 text-lg font-semibold"
                 >
                   <a href="https://calendly.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                     <Calendar className="h-5 w-5" />
@@ -108,7 +108,7 @@ const Index = () => {
                 <Button 
                   asChild 
                   variant="outline"
-                  className="border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-4 text-lg font-semibold"
+                  className="border-2 border-navy text-navy hover:bg-navy hover:text-white px-8 py-3 text-lg font-semibold"
                 >
                   <Link to="/contact">
                     {language === "de" ? "Kostenlose Beratung" : "Get Free Consultation"}
@@ -139,20 +139,6 @@ const Index = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Floating card */}
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-lg border">
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 bg-electric-blue/10 rounded-lg flex items-center justify-center">
-                    <TrendingUp className="h-6 w-6 text-electric-blue" />
-                  </div>
-                  <div>
-                    <div className="font-semibold text-navy">+150%</div>
-                    <div className="text-sm text-gray-600">
-                      {language === "de" ? "Durchschn. Wachstum" : "Avg. Growth"}
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -162,7 +148,7 @@ const Index = () => {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16 space-y-4">
-            <h2 className="text-4xl md:text-5xl font-bold text-navy">
+            <h2 className="text-3xl md:text-4xl font-bold text-navy">
               {language === "de" ? "Unsere Dienstleistungen" : "Our Services"}
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
@@ -196,7 +182,7 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8">
-              <h2 className="text-4xl md:text-5xl font-bold text-navy">
+              <h2 className="text-3xl md:text-4xl font-bold text-navy">
                 {language === "de" ? "Warum Thun Ventures?" : "Why Thun Ventures?"}
               </h2>
               <p className="text-xl text-gray-600 leading-relaxed">
@@ -233,10 +219,10 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-24 bg-navy text-white relative overflow-hidden">
+      <section className="py-20 bg-navy text-white relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-navy via-electric-blue/20 to-navy"></div>
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+          <h2 className="text-3xl md:text-4xl font-bold mb-8">
             {language === "de" 
               ? "Bereit für digitales Wachstum?"
               : "Ready for Digital Growth?"
@@ -250,7 +236,7 @@ const Index = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <Button asChild className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-4">
+            <Button asChild className="bg-electric-blue hover:bg-electric-blue/90 text-white text-lg px-8 py-3">
               <Link to="/packages" className="flex items-center gap-2">
                 {language === "de" ? "Pakete ansehen" : "View Packages"}
                 <ArrowRight className="h-5 w-5" />
@@ -259,7 +245,7 @@ const Index = () => {
             <Button 
               asChild 
               variant="outline"
-              className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-4"
+              className="border-2 border-white text-white hover:bg-white hover:text-navy text-lg px-8 py-3"
             >
               <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                 <MessageCircle className="h-5 w-5" />
@@ -268,10 +254,6 @@ const Index = () => {
             </Button>
           </div>
         </div>
-        
-        {/* Decorative elements */}
-        <div className="absolute top-1/4 left-10 w-20 h-20 bg-electric-blue/10 rounded-full blur-xl"></div>
-        <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-purple-500/10 rounded-full blur-xl"></div>
       </section>
     </div>
   );
