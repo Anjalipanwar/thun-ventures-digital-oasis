@@ -51,12 +51,12 @@ const Index = () => {
       {/* Hero Section */}
       <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 bg-violet-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-violet-50">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mx-[10px]">
+            <div className="space-y-8 mx-0 px-0 py-0 my-0 rounded">
               <div className="inline-flex items-center px-4 py-2 bg-electric-blue/10 text-electric-blue rounded-full text-sm font-medium">
                 🚀 {language === "de" ? "Digitales Wachstum beginnt hier" : "Digital Growth Starts Here"}
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold leading-tight text-center">
+              <h1 className="text-4xl leading-tight md:text-6xl mx-0 font-bold text-violet-50 text-center">
                 <span className="text-navy">
                   {language === "de" ? "Ihre" : "Your"}
                 </span>
@@ -91,11 +91,9 @@ const Index = () => {
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
                 {stats.map((stat, index) => <div key={index} className="text-center">
-                    <div className="flex items-center justify-center mb-2 text-electric-blue">
-                      {stat.icon}
-                    </div>
-                    <div className="text-2xl font-bold text-navy">{stat.number}</div>
-                    <div className="text-sm text-gray-600">{stat.label}</div>
+                    
+                    
+                    
                   </div>)}
               </div>
             </div>
