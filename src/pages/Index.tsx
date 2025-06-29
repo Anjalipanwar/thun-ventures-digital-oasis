@@ -3,10 +3,10 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { BarChart3, Smartphone, Globe, TrendingUp, Calendar, MessageCircle, CheckCircle, ArrowRight, Users, Award, Target, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+
 const Index = () => {
-  const {
-    language
-  } = useLanguage();
+  const { language } = useLanguage();
+
   const capabilities = [{
     icon: <Search className="h-8 w-8" />,
     title: language === "de" ? "SEO & Content-Strategie" : "SEO & Content Strategy",
@@ -24,6 +24,7 @@ const Index = () => {
     title: language === "de" ? "Performance Marketing (Ads)" : "Performance Marketing (Ads)",
     description: language === "de" ? "Datengetriebene Werbekampagnen für maximale ROI und messbare Ergebnisse" : "Data-driven advertising campaigns for maximum ROI and measurable results"
   }];
+
   const stats = [{
     icon: <Users className="h-6 w-6" />,
     number: "50+",
@@ -37,6 +38,7 @@ const Index = () => {
     number: "3x",
     label: language === "de" ? "ROI Durchschnitt" : "Average ROI"
   }];
+
   const whyChooseUs = [{
     title: language === "de" ? "Spezialisiert auf kleine Unternehmen" : "Specialized in small businesses",
     description: language === "de" ? "Maßgeschneiderte Lösungen für Selbstständige und KMU" : "Tailored solutions for entrepreneurs and SMEs"
@@ -47,12 +49,14 @@ const Index = () => {
     title: language === "de" ? "Messbare Ergebnisse" : "Measurable results",
     description: language === "de" ? "Sichtbare Verbesserungen in 30-90 Tagen" : "Visible improvements in 30-90 days"
   }];
-  return <div className="pt-16">
+
+  return (
+    <div className="pt-16">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20 bg-violet-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 bg-violet-50">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mx-[10px]">
-            <div className="space-y-8 mx-0 px-0 py-0 my-0 rounded">
+      <section className="py-20 bg-gradient-to-br from-white via-blue-50/30 to-purple-50/20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-8 mx-auto px-0 py-0 my-0 rounded text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 bg-electric-blue/10 text-electric-blue rounded-full text-sm font-medium">
                 🚀 {language === "de" ? "Digitales Wachstum beginnt hier" : "Digital Growth Starts Here"}
               </div>
@@ -90,17 +94,25 @@ const Index = () => {
 
               {/* Stats */}
               <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
-                {stats.map((stat, index) => <div key={index} className="text-center">
+                {stats.map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl font-bold text-navy">{stat.number}</div>
+                    <div className="text-sm text-gray-500">{stat.label}</div>
                     
                     
                     
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
             
             {/* Hero Image */}
             <div className="relative">
-              
+              <img 
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&h=500&fit=crop" 
+                alt="Digital Marketing Team" 
+                className="rounded-2xl shadow-2xl w-full"
+              />
             </div>
           </div>
         </div>
@@ -119,7 +131,8 @@ const Index = () => {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {capabilities.map((capability, index) => <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-sm hover:-translate-y-2">
+            {capabilities.map((capability, index) => (
+              <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-sm hover:-translate-y-2">
                 <CardContent className="p-8 text-center space-y-6">
                   <div className="w-16 h-16 bg-gradient-to-br from-electric-blue/10 to-purple-100 rounded-2xl flex items-center justify-center mx-auto group-hover:scale-110 transition-transform duration-300">
                     <div className="text-electric-blue">
@@ -129,7 +142,8 @@ const Index = () => {
                   <h3 className="text-xl font-bold text-navy">{capability.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{capability.description}</p>
                 </CardContent>
-              </Card>)}
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -147,7 +161,8 @@ const Index = () => {
               </p>
               
               <div className="space-y-6">
-                {whyChooseUs.map((item, index) => <div key={index} className="flex items-start space-x-4">
+                {whyChooseUs.map((item, index) => (
+                  <div key={index} className="flex items-start space-x-4">
                     <div className="w-6 h-6 bg-electric-blue rounded-full flex items-center justify-center flex-shrink-0 mt-1">
                       <CheckCircle className="h-4 w-4 text-white" />
                     </div>
@@ -155,7 +170,8 @@ const Index = () => {
                       <h3 className="text-lg font-semibold text-navy mb-1">{item.title}</h3>
                       <p className="text-gray-600">{item.description}</p>
                     </div>
-                  </div>)}
+                  </div>
+                ))}
               </div>
             </div>
             
@@ -193,6 +209,8 @@ const Index = () => {
           </div>
         </div>
       </section>
-    </div>;
+    </div>
+  );
 };
+
 export default Index;
