@@ -2,7 +2,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart3, Smartphone, Globe, TrendingUp, Calendar, MessageCircle, CheckCircle, ArrowRight, Users, Award, Target } from "lucide-react";
+import { BarChart3, Smartphone, Globe, TrendingUp, Calendar, MessageCircle, CheckCircle, ArrowRight, Users, Award, Target, Search } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Index = () => {
